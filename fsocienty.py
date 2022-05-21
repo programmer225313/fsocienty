@@ -1,14 +1,20 @@
+'''
+Get path to directory and repeat times.
+Then execute command "tree" from specified path specified number of times
+'''
 import os
 import sys
 import re
 
 
 def fake_hack(repeat=10, path="."):
+    '''Executes a command "tree" from the specified directory the specified number of times.'''
     for _ in range(repeat):
         os.system(f"tree {path}")
 
 
 def check_dirs(lst):
+    """Get list and return list of paths to dirs from that list."""
     exists_paths = []
     for arg in lst:
         if os.path.isdir(arg):
@@ -17,6 +23,7 @@ def check_dirs(lst):
 
 
 def check_for_integers(lst):
+    """Get list and return list of integers from that list"""
     integers = []
     for arg in lst:
         if re.fullmatch(r'\d', arg):
