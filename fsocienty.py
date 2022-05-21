@@ -19,8 +19,8 @@ def check_dirs(lst):
 def check_for_integers(lst):
     integers = []
     for arg in lst:
-        if re.fullmatch(r'/d', arg):
-            integers.append(arg)
+        if re.fullmatch(r'\d', arg):
+            integers.append(int(arg))
     return integers
 
 
