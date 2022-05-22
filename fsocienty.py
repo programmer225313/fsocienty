@@ -26,7 +26,7 @@ def check_for_integers(lst):
     """Get list and return list of integers from that list"""
     integers = []
     for arg in lst:
-        if re.fullmatch(r'\d', arg):
+        if re.fullmatch(r'\d*', arg):
             integers.append(int(arg))
     return integers
 
