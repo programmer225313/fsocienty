@@ -10,5 +10,5 @@ alias fsocienty="python3 [path to fsocienty.py]"
 
 Run:
 <blockquote>
-fsocienty [path_to_folder] [repeat_times]
+fsocienty [path_to_folder] [fake_target_name]
 </blockquote>

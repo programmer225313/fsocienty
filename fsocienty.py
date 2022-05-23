@@ -1,16 +1,36 @@
 '''
-Get path to directory and repeat times.
-Then execute command "tree" from specified path specified number of times
+Get path to directory and fake target name.
+Then print some text and execute command "tree" from specified path to create the appearance of hacking.
 '''
 import os
 import sys
-import re
+import time
+import random
 
 
-def fake_hack(repeat=10, path="."):
-    '''Executes a command "tree" from the specified directory the specified number of times.'''
-    for _ in range(repeat):
-        os.system(f"tree {path}")
+def fake_hack(fake_target="NASA", path="."):
+    '''Print some text and executes a command "tree" from the specified directory to create the appearance of hacking.'''
+    print(f"Hacking {fake_target}...")
+    for x in range(0, 100, 10):
+        fake_progress = random.randint(x, x + 10)
+        time.sleep(0.1)
+        print(f"{fake_progress} ready...")
+        time.sleep(0.1)
+    print(f"{fake_target} hacked!")
+    time.sleep(0.1)
+    print("Scanning storage...")
+    time.sleep(0.5)
+    os.system(f"tree {path}")
+    time.sleep(0.5)
+    print("All files finded!")
+    time.sleep(0.1)
+    print("Stealing data...")
+    time.sleep(0.5)
+    os.system(f"tree {path}")
+    time.sleep(0.5)
+    print("All files copied to remote server!")
+    time.sleep(1)
+
 
 
 def check_dirs(lst):
@@ -22,17 +42,8 @@ def check_dirs(lst):
     return exists_paths
 
 
-def check_for_integers(lst):
-    """Get list and return list of integers from that list"""
-    integers = []
-    for arg in lst:
-        if re.fullmatch(r'\d*', arg):
-            integers.append(int(arg))
-    return integers
-
-
 if __name__ == "__main__":
     start_path = check_dirs(sys.argv)[0]
-    repeat_times = check_for_integers(sys.argv)[0]
+    target_name = sys.argv[2]
 
-    fake_hack(repeat_times, start_path)
+    fake_hack(target_name, start_path)
